@@ -9,15 +9,12 @@
 
 while (true){
  $year = (int)readline("В каком году распался СССР? (1945, 1991, 1993) ");
-if ($year === 1945){
+if ($year === 1945 || $year === 1993){
   echo "Неправильный ответ." . PHP_EOL;
   break;
 } elseif ($year === 1991){
   echo "Все верно! Поздравляю!" . PHP_EOL;
     break;
-}elseif($year === 1993){
-  echo "Неправильный ответ." . PHP_EOL;
-  break;
 }
 }
 
