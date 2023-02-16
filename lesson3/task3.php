@@ -54,8 +54,9 @@ foreach ($students as $group) {
     };
     $average[] = $sum / count($group);
 };
-$max = max($average); //3.5714285714286
-// Функция max найдет максимальное значение в массиве $average,
-// но как сопоставить это значение с массивом $students я не могу найти
+$max = max($average);
+$key = array_search(max($average), $average);
+echo "Лучшая группа по успеваемости: ";
+print_r (array_keys($students)[$key] . PHP_EOL);
 echo "Список на отчисление:" . PHP_EOL;
 print_r (implode("\n", $expulsion));
