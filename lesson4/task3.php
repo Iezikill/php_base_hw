@@ -62,4 +62,9 @@ function checkBox(string $subject, array $array): bool
   }
   return false;
 }
-echo checkBox("Ключик", $box) ? 'true' : 'false';
+
+if (checkBox("Ключ", $box)){
+  echo 'true'.PHP_EOL;
+}else{
+  echo 'false'.PHP_EOL;
+}
