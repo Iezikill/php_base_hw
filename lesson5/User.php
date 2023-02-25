@@ -1,4 +1,4 @@
-<?
+<?php
 
 class User
 {
@@ -13,7 +13,7 @@ class User
   {
     $this->username = $username;
     $this->email = $email;
-    $this->dateCreated = new DateTime(); // Текущие дата и время
+    $this->dateCreated = new DateTime();
   }
 
   function getUsername(): string
