@@ -1,11 +1,12 @@
 <?php
 
-require_once "model/User.php";
+require_once "User.php";
 
 class UserProvider
 {
     private static array $accounts = [
-        'hello' => '123',
+        'geekbrains' => 'password123',
+        'viktorriya' => '123',
         'root' => '321',
     ];
 

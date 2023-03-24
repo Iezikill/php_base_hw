@@ -1,11 +1,11 @@
 <?php
 
+$pageHeader = 'Добро пожаловать';
 $username = isset($_REQUEST['username']) && !empty($_REQUEST['username']) ? $_REQUEST['username'] : null;
 
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-    setcookie('username', null, -1);
+    setcookie('username', null, -1); //удаление куки
     unset($_SESSION['user']);
-
 } elseif (is_null($username) && isset($_COOKIE['username']) && !empty($_COOKIE['username'])) {
     $username = $_COOKIE['username'];
 }
@@ -15,4 +15,3 @@ if (isset($username)) {
 }
 
 require_once 'view/home.php';
-
