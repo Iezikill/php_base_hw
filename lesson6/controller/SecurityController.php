@@ -1,23 +1,26 @@
 <?php
-require_once '/model/UserProvider.php';
-
-if (isset($_SESSION['user'])) {
-    header('Location: /'); //переадресация на главную страницу
-}
-
 $error = null;
-if (isset($_POST['username'], $_POST['password'])) {
-    ['username' => $username, 'password' => $password] = $_POST;
+if (isset($_GET['action'])) {
 
-    $user = UserProvider::getByUsernameAndPassword($username, $password);
+    if ($_GET['action'] === 'logout') {
+        unset($_SESSION['user']);
+        header('Location: /'); //переадресация на главную страницу
+    } elseif ($_GET['action'] === 'signin') {
+        if (isset($_SESSION['user'])) {
+            header('Location: /');
+        } elseif (isset($_POST['username'], $_POST['password'])) {
 
-    if (is_null($user)) {
-        $error = 'Пользователь с указанными учетными данными не найден';
-    } else {
-        $_SESSION['user'] = $user;
-        // setcookie('username', $username, time() + 60 * 60 * 24);
-        // header('Location: ?controller=home');
+            ['username' => $username, 'password' => $password] = $_POST;
+
+            $user = UserProvider::getByUsernameAndPassword($username, $password);
+
+            if (is_null($user)) {
+                $error = 'Пользователь не найден';
+            } else {
+                $_SESSION['user'] = $user;
+                header('Location: /');
+            }
+        }
     }
 }
-
 require_once 'view/signin.php';

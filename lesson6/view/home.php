@@ -28,10 +28,12 @@
     <main>
         <?php if (isset($username)) : ?>
             <p>Давно не заходили, <?= $username ?></p>
-            <a href="/?action=logout">Выйти</a>
+            <a href="?controller=task">Задачи</a>
+            <hr>
+            <a href="?controller=security&action=logout">Выйти</a>
 
         <?php else : ?>
-            <a href="/?controller=security">Войти</a>
+            <a href="?controller=security&action=signin">Войти</a>
 
         <?php endif; ?>
 

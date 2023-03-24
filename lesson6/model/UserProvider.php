@@ -1,12 +1,10 @@
 <?php
 
-require_once "User.php";
-
 class UserProvider
 {
     private static array $accounts = [
         'geekbrains' => 'password123',
-        'viktorriya' => '123',
+        'viktoriya' => '123',
         'root' => '321',
     ];
 
